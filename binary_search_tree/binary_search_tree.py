@@ -27,7 +27,7 @@ class BinarySearchTree:
             return False
 
     def get_max(self):
-        if not self.right:
-            return self.value
-        else:
+        if self.right:
             return self.right.get_max()
+        else:
+            return self.value
