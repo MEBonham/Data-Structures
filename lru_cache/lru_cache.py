@@ -23,7 +23,6 @@ class LRUCache:
             return None
         else:
             self.priority.move_to_front(self.node_refs[key])
-            self.print_self()
             return self.dictionary[key]
 
     """
@@ -39,10 +38,8 @@ class LRUCache:
     def set(self, key, value):
         # If key is already in dictionary, just change it and move it to most-recently-used
         if key in self.dictionary:
-            print("Flag1")
             self.dictionary[key] = value
             self.priority.move_to_front(self.node_refs[key])
-            print("Flag2")
         # Otherwise, it needs to be added to the dictionaries and the priority
         else:
             self.dictionary[key] = value
@@ -57,7 +54,6 @@ class LRUCache:
                 self.priority.remove_from_tail()
                 self.node_refs.pop(oldest_key)
                 self.dictionary.pop(oldest_key)
-        self.print_self()
 
     def print_self(self):
         print(f'dictionary: {self.dictionary}')

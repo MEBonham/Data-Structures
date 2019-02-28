@@ -84,6 +84,8 @@ class DoublyLinkedList:
       node.prev.next = node.next
     if node.next:
       node.next.prev = node.prev
+    if self.tail is node and self.head != node:
+      self.tail = node.prev
     node.prev = None
     if self.head:
       self.head.prev = node
@@ -99,6 +101,8 @@ class DoublyLinkedList:
       node.prev.next = node.next
     if node.next:
       node.next.prev = node.prev
+    if self.head is node and self.tail != node:
+      self.head = node.next
     node.next = None
     if self.tail:
       self.tail.next = node
